@@ -8,10 +8,13 @@ import Card from "./componets/Card/Card.js";
 import CartPage from "./pages/CartPage";
 import { connect } from "react-redux";
 import Skeleton from "./componets/pizzaBlock/skeleton";
-import { loadCurrent } from "./redux/Shopping/shopping-actions";
-import SinglePage from "./pages/singlePage/SinglePage";
+import store from "./redux/store";
 
-function App({ products, cart, loadCurrent, currentItem }) {
+store.subscribe(() => {
+  localStorage.setItem("cartData", JSON.stringify(store.getState()));
+});
+
+function App({ products, cart, currentItem }) {
   const [filtred, setFiltred] = useState(products);
   const [categ, setCateg] = useState("");
   const [input, setInput] = useState("");
@@ -74,7 +77,7 @@ function App({ products, cart, loadCurrent, currentItem }) {
     <div className="App">
       <Routes>
         <Route
-          path="/"
+          path=""
           element={
             <div className="pizza-container __container">
               <div className="pizza-header">
@@ -89,7 +92,7 @@ function App({ products, cart, loadCurrent, currentItem }) {
                     onChange={handleInput}
                   />
                 </div>
-                <Link to="/cart">
+                <Link to="cart">
                   <Cart className="disable-link" cart={cart} />
                 </Link>
               </div>
@@ -109,12 +112,7 @@ function App({ products, cart, loadCurrent, currentItem }) {
                       ))
                     : filtred.map((prod) => {
                         return (
-                          <Card
-                            key={prod.id}
-                            productData={prod}
-                            cart={cart}
-                            loadCurrent={loadCurrent}
-                          />
+                          <Card key={prod.id} productData={prod} cart={cart} />
                         );
                       })}
                 </div>
@@ -123,7 +121,7 @@ function App({ products, cart, loadCurrent, currentItem }) {
           }
         />
         <Route
-          path="/cart"
+          path="cart"
           element={
             <div className="pizza-cart __container">
               <Link to={"/"}>
@@ -131,22 +129,6 @@ function App({ products, cart, loadCurrent, currentItem }) {
               </Link>
 
               <CartPage cart={cart} />
-            </div>
-          }
-        />
-        <Route
-          path="/singlePage"
-          element={
-            <div className="pizza-cart __container">
-              <div className="pizza-header">
-                <Link to={"/"}>
-                  <Header />
-                </Link>
-                <Link to="/cart">
-                  <Cart className="disable-link" cart={cart} />
-                </Link>
-              </div>
-              <SinglePage />
             </div>
           }
         />
@@ -163,10 +145,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    loadCurrent: (item) => dispatch(loadCurrent(item)),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);

@@ -42,13 +42,6 @@ export const decrement = (itemID) => {
   };
 };
 
-export const loadCurrent = (item) => {
-  return {
-    type: actionTypes.LOAD_CURRENT,
-    payload: item,
-  };
-};
-
 export const addType = (itemID, valueType) => {
   return {
     type: actionTypes.ADD_TYPE,

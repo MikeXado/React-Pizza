@@ -154,16 +154,6 @@ const shopReducer = (state = INITIAL_STATE, action) => {
         ),
       };
 
-    case actionTypes.LOAD_CURRENT:
-      let exist = state.products.find((item) =>
-        item === action.payload ? true : false
-      );
-      const current = state.products.find((prod) => prod === action.payload);
-      return {
-        ...state,
-        currentItem: exist ? current : null,
-      };
-
     case actionTypes.ADD_TYPE:
       const findType = state.products.find((item) =>
         item.type.includes(action.payload.valueType)
