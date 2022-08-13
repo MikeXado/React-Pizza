@@ -1,0 +1,34 @@
+.cart-content {
+  @media (max-width: 960px) {
+    margin-top: 30px;
+  }
+  &__btn {
+    display: flex;
+    align-items: center;
+    background: #fe5f1e;
+    border-radius: 30px;
+    padding: 15px 23px;
+    color: #fff;
+    width: 180px;
+    justify-content: center;
+  }
+
+  .btn-item:not(:last-child) {
+    margin: 0 13px 0 0;
+  }
+
+  &__vertical-line {
+    background: rgba(255, 255, 255, 0.25);
+    width: 1px;
+    height: 25px;
+  }
+
+  &__products-amount {
+    display: flex;
+    align-items: center;
+
+    .cart-content__products-count {
+      margin-left: 8px;
+    }
+  }
+}

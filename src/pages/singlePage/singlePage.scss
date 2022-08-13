@@ -1,0 +1,32 @@
+.content-single {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+
+  img {
+    width: 400px;
+  }
+
+  &__text {
+    margin-left: 100px;
+  }
+
+  &__name {
+    font-size: 30px;
+    font-weight: 700;
+  }
+
+  .btn {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    width: 300px;
+    justify-content: space-between;
+
+    .price {
+      font-size: 25px;
+      font-weight: 600;
+    }
+  }
+}

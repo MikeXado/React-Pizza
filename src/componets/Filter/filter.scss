@@ -1,0 +1,105 @@
+.filter-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (max-width: 1092px) {
+    flex-direction: column;
+  }
+
+  .categories-filter {
+    width: 827.9px;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+
+    @media (max-width: 900px) {
+      grid-template-columns: repeat(4, 1fr);
+      row-gap: 15px;
+    }
+
+    @media (max-width: 670px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: 480px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 370px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+    &__item {
+      background: #f9f9f9;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 19px;
+      text-align: center;
+      letter-spacing: 0.015em;
+      color: #2c2c2c;
+      transition: 0.5s ease;
+      padding: 13.93px 30.95px 16.74px 30.95px;
+      cursor: pointer;
+    }
+
+    &__item:hover {
+      background: #282828;
+      color: #fff;
+      transition: 0.5s ease;
+    }
+  }
+}
+
+.active-item {
+  background: #282828;
+  color: #fff;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  letter-spacing: 0.015em;
+  transition: 0.5s ease;
+  padding: 13.93px 30.95px 16.74px 30.95px;
+  cursor: pointer;
+}
+
+.sort-filter {
+  position: relative;
+  @media (max-width: 1092px) {
+    margin-top: 30px;
+  }
+
+  &__arrow-btn {
+    display: flex;
+    align-items: center;
+  }
+
+  &__text {
+    margin-left: 7px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.015em;
+    color: #2c2c2c;
+    display: flex;
+    align-items: center;
+  }
+
+  &__button {
+    margin-left: 5px;
+    select {
+      border: none;
+      color: #eb5a1e;
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      padding-left: 5px;
+      border-bottom: 1px solid #eb5a1e;
+    }
+    select::-ms-expand {
+      display: none;
+    }
+  }
+}
