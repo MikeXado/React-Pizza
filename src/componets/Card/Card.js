@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 
 import { connect } from "react-redux";
 import {
@@ -50,10 +49,9 @@ function Card({
         loadCurrent(productData);
       }}
     >
-      <Link to={"/singlePage"}>
-        <img src={productData.img} alt="pizza" />
-        <div className="pizza-cards__text">{productData.name}</div>
-      </Link>
+      <img src={productData.img} alt="pizza" />
+      <div className="pizza-cards__text">{productData.name}</div>
+
       <div className="pizza-cards__preferences preferences-card">
         <div className="preferences-card__type">
           {typeNames.map((type, index) => (
